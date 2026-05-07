@@ -1,0 +1,39 @@
+[project]
+name = "Logika_onbaording"  # Назва твого проекту
+version = "0.1.0"
+description = "Project for python onboarding"
+requires-python = ">=3.14" 
+dependencies = [
+    "pytest>=8.0.0",
+]
+
+[tool.uv]
+# uv автоматично керуватиме твоїм віртуальним оточенням
+dev-dependencies = [
+    "ruff>=0.9.0",
+    "mypy>=1.10.0",
+]
+
+[tool.ruff]
+# Це заміна flake8, flake8-annotations, flake8-quotes та pep8-naming
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+# Вибираємо набори правил (аналоги твоїх старих пакетів)
+select = [
+    "E",    # pycodestyle (помилки)
+    "W",    # pycodestyle (попередження)
+    "F",    # Pyflakes (основа flake8)
+    "N",    # pep8-naming (як твій старий pep8-naming)
+    "ANN",  # flake8-annotations (типізація)
+    "Q",    # flake8-quotes (лапки)
+    "I",    # isort (автоматичне сортування імпортів)
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single" # Налаштування як у flake8-quotes
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
